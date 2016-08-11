@@ -12,7 +12,8 @@ public:
     DynamicArray();// DEFAULT CONSTRUCTOR
     ~DynamicArray();// DESTRUCTOR
     
-    void GrowArrayByOne(const int &X);
+    void GrowArrayEndByOne(const int &X);
+    void InsertElement(const int &Position, const int &NewElement);
     void PrintArray();
     void DeleteNumber(const int &X);
     void ClearArray();
@@ -21,29 +22,14 @@ public:
 int main()// TEMPORARY DRIVER PROGRAM TO TEST THE DYNAMICARRAY CLASS
 {
     DynamicArray X;
-    int Insert;
-    int Delete;
     
-    cout << "Enter Numbers: ";
-    cin >> Insert;
+    X.GrowArrayEndByOne(1);
+    X.GrowArrayEndByOne(2);
+    X.GrowArrayEndByOne(4);
+    X.GrowArrayEndByOne(5);
     
-    for (int i = 0; Insert != 0; i++)
-    {
-        X.GrowArrayByOne(Insert);
-        X.PrintArray();
-        cout << "Enter Numbers: ";
-        cin >> Insert;
-        
-        cout << "Delete a number: ";
-        cin >> Delete;
-        
-        if (Delete > 0)
-        {
-            X.DeleteNumber(Delete);
-        }
-    }
+    X.InsertElement(3, 3);
     
-    X.ClearArray();
     
     X.PrintArray();
 }
@@ -59,7 +45,7 @@ DynamicArray::~DynamicArray()// DESTRUCTOR
     delete ArrayPointer;
 }
 
-void DynamicArray::GrowArrayByOne(const int &X)
+void DynamicArray::GrowArrayEndByOne(const int &X)
 {
     int *TempIntPointer = NULL;
     
@@ -99,6 +85,47 @@ void DynamicArray::GrowArrayByOne(const int &X)
     delete ArrayPointer;
     
     /* ASSIGN THE MEMORY LOCATION OF THEW NEW (LARGER) ARRAY TO ARRAYPOINTER */
+    
+    ArrayPointer = TempIntPointer;
+    
+    /* POINT TEMPINTPOINTER TO NULL */
+    
+    TempIntPointer = NULL;
+}
+
+void DynamicArray::InsertElement(const int &Position, const int &NewElement)
+{
+    /* MAKE NEW ARRAY THATS ONE SIZE BIGGER */
+    
+    int *TempIntPointer = new(nothrow) int[ArraySize + 1];
+    
+    /* COPY ORIGINAL ARRAY FROM ARRAYPOINTER TO TEMPINTPOINTER*/
+    
+    for (int i = 0; i < ArraySize; i++)
+    {
+        TempIntPointer[i] = ArrayPointer[i];
+    }
+    
+    /* INCREASE ARRAYSIZE BY ONE */
+    
+    ArraySize++;
+    
+    /* MOVE ALL ELEMENTS OVER ONE SPOT, STARTING FROM RIGHT AND WORKING LEFT, LEAVING SPACE AT THE DESIRED POSITION */
+    
+    for (int i = (ArraySize - 1); i > (Position - 1); i--)
+    {
+        TempIntPointer[i] = TempIntPointer[i - 1];
+    }
+    
+    /* INSERT NEW ELEMENT AT DESIRED POSITION */
+    
+    TempIntPointer[Position - 1] = NewElement;
+    
+    /* DELETE THE ORIGINAL ARRAY FROM ARRAYPOINTER */
+    
+    delete ArrayPointer;
+    
+    /* ASSIGN NEW ARRAY TO ARRAYPOINTER */
     
     ArrayPointer = TempIntPointer;
     
