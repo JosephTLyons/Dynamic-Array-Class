@@ -23,7 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		992844751D535AF600ACC43B /* Grow and Shrink Class */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Grow and Shrink Class"; sourceTree = BUILT_PRODUCTS_DIR; };
+		992844751D535AF600ACC43B /* Dynamic Array Class */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Dynamic Array Class"; sourceTree = BUILT_PRODUCTS_DIR; };
 		992844781D535AF600ACC43B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,7 +41,7 @@
 		9928446C1D535AF600ACC43B = {
 			isa = PBXGroup;
 			children = (
-				992844771D535AF600ACC43B /* Grow and Shrink Class */,
+				992844771D535AF600ACC43B /* Dynamic Array Class */,
 				992844761D535AF600ACC43B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,25 +49,26 @@
 		992844761D535AF600ACC43B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				992844751D535AF600ACC43B /* Grow and Shrink Class */,
+				992844751D535AF600ACC43B /* Dynamic Array Class */,
 			);
 			name = Products;
+			path = "Dynamic Array Class";
 			sourceTree = "<group>";
 		};
-		992844771D535AF600ACC43B /* Grow and Shrink Class */ = {
+		992844771D535AF600ACC43B /* Dynamic Array Class */ = {
 			isa = PBXGroup;
 			children = (
 				992844781D535AF600ACC43B /* main.cpp */,
 			);
-			path = "Grow and Shrink Class";
+			path = "Dynamic Array Class";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		992844741D535AF600ACC43B /* Grow and Shrink Class */ = {
+		992844741D535AF600ACC43B /* Dynamic Array Class */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9928447C1D535AF600ACC43B /* Build configuration list for PBXNativeTarget "Grow and Shrink Class" */;
+			buildConfigurationList = 9928447C1D535AF600ACC43B /* Build configuration list for PBXNativeTarget "Dynamic Array Class" */;
 			buildPhases = (
 				992844711D535AF600ACC43B /* Sources */,
 				992844721D535AF600ACC43B /* Frameworks */,
@@ -77,9 +78,9 @@
 			);
 			dependencies = (
 			);
-			name = "Grow and Shrink Class";
+			name = "Dynamic Array Class";
 			productName = "Grow and Shrink Class";
-			productReference = 992844751D535AF600ACC43B /* Grow and Shrink Class */;
+			productReference = 992844751D535AF600ACC43B /* Dynamic Array Class */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +97,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 992844701D535AF600ACC43B /* Build configuration list for PBXProject "Grow and Shrink Class" */;
+			buildConfigurationList = 992844701D535AF600ACC43B /* Build configuration list for PBXProject "Dynamic Array Class" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -108,7 +109,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				992844741D535AF600ACC43B /* Grow and Shrink Class */,
+				992844741D535AF600ACC43B /* Dynamic Array Class */,
 			);
 		};
 /* End PBXProject section */
@@ -209,21 +210,21 @@
 		9928447D1D535AF600ACC43B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dynamic Array Class";
 			};
 			name = Debug;
 		};
 		9928447E1D535AF600ACC43B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dynamic Array Class";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		992844701D535AF600ACC43B /* Build configuration list for PBXProject "Grow and Shrink Class" */ = {
+		992844701D535AF600ACC43B /* Build configuration list for PBXProject "Dynamic Array Class" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9928447A1D535AF600ACC43B /* Debug */,
@@ -232,13 +233,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9928447C1D535AF600ACC43B /* Build configuration list for PBXNativeTarget "Grow and Shrink Class" */ = {
+		9928447C1D535AF600ACC43B /* Build configuration list for PBXNativeTarget "Dynamic Array Class" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9928447D1D535AF600ACC43B /* Debug */,
 				9928447E1D535AF600ACC43B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

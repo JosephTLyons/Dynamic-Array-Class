@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "992844741D535AF600ACC43B"
-               BuildableName = "Grow and Shrink Class"
-               BlueprintName = "Grow and Shrink Class"
-               ReferencedContainer = "container:Grow and Shrink Class.xcodeproj">
+               BuildableName = "Dynamic Array Class"
+               BlueprintName = "Dynamic Array Class"
+               ReferencedContainer = "container:Dynamic Array Class.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "992844741D535AF600ACC43B"
-            BuildableName = "Grow and Shrink Class"
-            BlueprintName = "Grow and Shrink Class"
-            ReferencedContainer = "container:Grow and Shrink Class.xcodeproj">
+            BuildableName = "Dynamic Array Class"
+            BlueprintName = "Dynamic Array Class"
+            ReferencedContainer = "container:Dynamic Array Class.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "992844741D535AF600ACC43B"
-            BuildableName = "Grow and Shrink Class"
-            BlueprintName = "Grow and Shrink Class"
-            ReferencedContainer = "container:Grow and Shrink Class.xcodeproj">
+            BuildableName = "Dynamic Array Class"
+            BlueprintName = "Dynamic Array Class"
+            ReferencedContainer = "container:Dynamic Array Class.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "992844741D535AF600ACC43B"
-            BuildableName = "Grow and Shrink Class"
-            BlueprintName = "Grow and Shrink Class"
-            ReferencedContainer = "container:Grow and Shrink Class.xcodeproj">
+            BuildableName = "Dynamic Array Class"
+            BlueprintName = "Dynamic Array Class"
+            ReferencedContainer = "container:Dynamic Array Class.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
