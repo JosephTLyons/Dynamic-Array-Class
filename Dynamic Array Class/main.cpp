@@ -9,13 +9,13 @@ class DynamicArray
     
 public:
     
-    DynamicArray();// DEFAULT CONSTRUCTOR
+    DynamicArray(); // DEFAULT CONSTRUCTOR
     ~DynamicArray();// DESTRUCTOR
     
-    void GrowArrayEndByOne(const int &NewElement);
-    void InsertElement(const int &Position, const int &NewElement);
+    void AddElementToEnd(const int &NewElement);
+    void InsertElementInAnyPosition(const int &Position, const int &NewElement);
     void PrintArray();
-    void DeleteNumber(const int &ElementToBeDeleted);
+    void DeleteElementAtPosition(const int &ElementToBeDeleted);
     void ClearArray();
 };
 
@@ -23,13 +23,27 @@ int main()// TEMPORARY DRIVER PROGRAM TO TEST THE DYNAMICARRAY CLASS
 {
     DynamicArray X;
     
-    X.GrowArrayEndByOne(1);
-    X.GrowArrayEndByOne(2);
-    X.GrowArrayEndByOne(4);
-    X.GrowArrayEndByOne(5);
+    X.AddElementToEnd(1);
+    X.AddElementToEnd(2);
+    X.AddElementToEnd(4);
+    X.AddElementToEnd(5);
     
-    X.InsertElement(3, 3);
+    X.InsertElementInAnyPosition(3, 3);
+    X.InsertElementInAnyPosition(6, 6);
     
+    X.DeleteElementAtPosition(1);
+    
+    X.PrintArray();
+    
+    X.InsertElementInAnyPosition(1, 10);
+    
+    X.PrintArray();
+    
+    X.DeleteElementAtPosition(1);
+    
+    X.PrintArray();
+    
+    X.InsertElementInAnyPosition(1, 1);
     
     X.PrintArray();
 }
@@ -45,7 +59,7 @@ DynamicArray::~DynamicArray()// DESTRUCTOR
     delete ArrayPointer;
 }
 
-void DynamicArray::GrowArrayEndByOne(const int &NewElement)
+void DynamicArray::AddElementToEnd(const int &NewElement)
 {
     int *TempIntPointer = NULL;
     
@@ -93,7 +107,7 @@ void DynamicArray::GrowArrayEndByOne(const int &NewElement)
     TempIntPointer = NULL;
 }
 
-void DynamicArray::InsertElement(const int &Position, const int &NewElement)
+void DynamicArray::InsertElementInAnyPosition(const int &Position, const int &NewElement)
 {
     /* MAKE NEW ARRAY THATS ONE SIZE BIGGER */
     
@@ -151,7 +165,7 @@ void DynamicArray::PrintArray()
     cout << endl;
 }
 
-void DynamicArray::DeleteNumber(const int &ElementToBeDeleted)
+void DynamicArray::DeleteElementAtPosition(const int &ElementToBeDeleted)
 {
     int *TempIntPointer = NULL;
     
