@@ -13,39 +13,35 @@ public:
     ~DynamicArray();// DESTRUCTOR
     
     void AddElementToEnd(const int &NewElement);
-    void InsertElementInAnyPosition(const int &Position, const int &NewElement);
-    void PrintArray();
+    void InsertElementAtPosition(const int &Position, const int &NewElement);
+    void PrintFullArray();
     void DeleteElementAtPosition(const int &ElementToBeDeleted);
     void ClearArray();
+    void PrintSpecificElement(const int &ElementToPrint);
 };
 
 int main()// TEMPORARY DRIVER PROGRAM TO TEST THE DYNAMICARRAY CLASS
 {
     DynamicArray X;
     
-    X.AddElementToEnd(1);
-    X.AddElementToEnd(2);
-    X.AddElementToEnd(4);
-    X.AddElementToEnd(5);
+    for (int i = 0; i < 50; i++)
+    {
+        X.AddElementToEnd(i + 1);
+    }
     
-    X.InsertElementInAnyPosition(3, 3);
-    X.InsertElementInAnyPosition(6, 6);
+    X.PrintFullArray();
     
-    X.DeleteElementAtPosition(1);
+    X.DeleteElementAtPosition(25);
     
-    X.PrintArray();
+    X.PrintFullArray();
     
-    X.InsertElementInAnyPosition(1, 10);
+    X.InsertElementAtPosition(25, 1020);
     
-    X.PrintArray();
+    X.PrintFullArray();
     
-    X.DeleteElementAtPosition(1);
+    X.PrintSpecificElement(25);
     
-    X.PrintArray();
     
-    X.InsertElementInAnyPosition(1, 1);
-    
-    X.PrintArray();
 }
 
 DynamicArray::DynamicArray()// DEFAULT CONSTRUCTOR
@@ -107,7 +103,7 @@ void DynamicArray::AddElementToEnd(const int &NewElement)
     TempIntPointer = NULL;
 }
 
-void DynamicArray::InsertElementInAnyPosition(const int &Position, const int &NewElement)
+void DynamicArray::InsertElementAtPosition(const int &Position, const int &NewElement)
 {
     /* MAKE NEW ARRAY THATS ONE SIZE BIGGER */
     
@@ -148,7 +144,7 @@ void DynamicArray::InsertElementInAnyPosition(const int &Position, const int &Ne
     TempIntPointer = NULL;
 }
 
-void DynamicArray::PrintArray()
+void DynamicArray::PrintFullArray()
 {
     cout << endl;
     
@@ -220,6 +216,16 @@ void DynamicArray::ClearArray()
     /* RESET ARRAYSIZE BACK TO ZERO */
     
     ArraySize = 0;
+}
+
+void DynamicArray::PrintSpecificElement(const int &ElementToPrint)
+{
+    cout << ElementToPrint << ") ";
+    
+    /* PRINT ELEMENT REQUESTED */
+    
+    cout << ArrayPointer[ElementToPrint - 1];
+    cout << endl;
 }
 
 
