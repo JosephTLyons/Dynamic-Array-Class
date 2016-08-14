@@ -22,26 +22,23 @@ public:
 
 int main()// TEMPORARY DRIVER PROGRAM TO TEST THE DYNAMICARRAY CLASS
 {
-    DynamicArray X;
+    DynamicArray Y;
     
-    for (int i = 0; i < 50; i++)
+    srand((unsigned) time (NULL));
+    
+    for (int i = 0; i < 1; i++)
     {
-        X.AddElementToEnd(i + 1);
+        Y.AddElementToEnd(rand());
     }
     
-    X.PrintFullArray();
+    Y.PrintFullArray();
     
-    X.DeleteElementAtPosition(25);
+    for (int i = 0; i < 1; i++)
+    {
+        Y.DeleteElementAtPosition(i + 1);
+    }
     
-    X.PrintFullArray();
-    
-    X.InsertElementAtPosition(25, 1020);
-    
-    X.PrintFullArray();
-    
-    X.PrintSpecificElement(25);
-    
-    
+    Y.PrintFullArray();
 }
 
 DynamicArray::DynamicArray()// DEFAULT CONSTRUCTOR
@@ -52,7 +49,7 @@ DynamicArray::DynamicArray()// DEFAULT CONSTRUCTOR
 
 DynamicArray::~DynamicArray()// DESTRUCTOR
 {
-    delete ArrayPointer;
+    delete[] ArrayPointer;
 }
 
 void DynamicArray::AddElementToEnd(const int &NewElement)
@@ -92,7 +89,7 @@ void DynamicArray::AddElementToEnd(const int &NewElement)
     
     /* DELETE MEMORY ASSOCIATED WITH ORIGINAL ARRAY IN ARRAYPOINTER */
     
-    delete ArrayPointer;
+    delete[] ArrayPointer;
     
     /* ASSIGN THE MEMORY LOCATION OF THEW NEW (LARGER) ARRAY TO ARRAYPOINTER */
     
@@ -133,7 +130,7 @@ void DynamicArray::InsertElementAtPosition(const int &Position, const int &NewEl
     
     /* DELETE THE ORIGINAL ARRAY FROM ARRAYPOINTER */
     
-    delete ArrayPointer;
+    delete[] ArrayPointer;
     
     /* ASSIGN NEW ARRAY TO ARRAYPOINTER */
     
@@ -192,7 +189,7 @@ void DynamicArray::DeleteElementAtPosition(const int &ElementToBeDeleted)
     
     /* DELETE ORIGINAL ARRAY */
     
-    delete ArrayPointer;
+    delete[] ArrayPointer;
     
     /* ASSIGN NEW ARRAY TO ARRAYPOINTER */
     
@@ -207,7 +204,7 @@ void DynamicArray::ClearArray()
 {
     /* DELETE ARRAY */
     
-    delete ArrayPointer;
+    delete[] ArrayPointer;
     
     /* POINT ARRAYPOINTER TO NULL */
     
