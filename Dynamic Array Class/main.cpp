@@ -18,25 +18,26 @@ public:
     void DeleteElementAtPosition(const int &ElementToBeDeleted);
     void ClearArray();
     void PrintSpecificElement(const int &ElementToPrint);
+    void SortArray();
 };
 
 int main()// TEMPORARY DRIVER PROGRAM TO TEST THE DYNAMICARRAY CLASS
 {
     DynamicArray Y;
     
-    srand((unsigned) time (NULL));
+    int Input;
     
-    for (int i = 0; i < 1; i++)
+    cin >> Input;
+    
+    while (Input != 0)
     {
-        Y.AddElementToEnd(rand());
+        Y.AddElementToEnd(Input);
+        cin >> Input;
     }
     
     Y.PrintFullArray();
     
-    for (int i = 0; i < 1; i++)
-    {
-        Y.DeleteElementAtPosition(i + 1);
-    }
+    Y.SortArray();
     
     Y.PrintFullArray();
 }
@@ -223,6 +224,33 @@ void DynamicArray::PrintSpecificElement(const int &ElementToPrint)
     
     cout << ArrayPointer[ElementToPrint - 1];
     cout << endl;
+}
+
+void DynamicArray::SortArray()
+{
+    /* USING BUBBLE SORT TO SORT ARRAY */
+    
+    bool SwapsMadeFlag = true;
+    
+    /* ALWAYS REPEAT THROUGH AS LONG AS A SWAP WAS MADE */
+    
+    while (SwapsMadeFlag == true)
+    {
+        SwapsMadeFlag = false;
+        
+        /* GO THROUGH WHOLE ARRAY ONCE, CHECKING TWO NEIGHBORING NUMBERS */
+        /* SWAPPING NUMBERS AS NECESSARY, FIRST TIME THROUGH PUTS LARGEST NUMBER AT END */
+        
+        for (int i = 0; i < (ArraySize - 1); i++)
+        {
+            if (ArrayPointer[i] > ArrayPointer[i +1 ])
+            {
+                swap(ArrayPointer[i], ArrayPointer[i +1]);
+                SwapsMadeFlag = true;
+            }
+        }
+    }
+    
 }
 
 
