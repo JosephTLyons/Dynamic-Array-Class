@@ -1,4 +1,6 @@
-#include <iostream>
+#include <iostream> // FOR INPUT AND OUTPUT STREAM
+#include <time.h>   // FOR CLOCK FUNCTIONS - TESTING SPEED OF ALGORITHM
+#include <iomanip>
 
 using namespace std;
 
@@ -18,28 +20,63 @@ public:
     void DeleteElementAtPosition(const int &ElementToBeDeleted);
     void ClearArray();
     void PrintSpecificElement(const int &ElementToPrint);
-    void SortArray();
+    void BubbleSortArray();
+    void SelectionSortArray();
+    void InsertionSortArray();
 };
 
 int main()// TEMPORARY DRIVER PROGRAM TO TEST THE DYNAMICARRAY CLASS
 {
-    DynamicArray Y;
+    DynamicArray X;
     
-    int Input;
+    unsigned long int StartTime;
+    unsigned long int EndTime;
+    const int AmountOfTimesThroughLoop = 10;
+    float Speed;
+    float TotalTime = 0;
     
-    cin >> Input;
+    cout << "This program will test how fast this computer can dynamically allocate memory for a 20,000 element array.\n";
+    cout << "The numbers will range from 1 to 10,000\n";
+    cout << "This will also test the speed of various sorting algorithms";
+    cout << "This entire process is repeated 10 times to check consistency of speeds\n\n";
     
-    while (Input != 0)
+    srand((unsigned) time (NULL));
+    
+    for (int i = 0; i < AmountOfTimesThroughLoop; i++)
     {
-        Y.AddElementToEnd(Input);
-        cin >> Input;
+        StartTime = clock();
+        
+        for (int i = 0; i < 20000; i++)
+        {
+            X.AddElementToEnd(1 + (rand() % 10000));
+        }
+        
+        EndTime = clock();
+        
+        Speed = ((float) EndTime - StartTime) / CLOCKS_PER_SEC;
+        
+        cout << (i + 1) << ") Seconds it took to build an array: ";
+        cout << Speed << " seconds" << endl;
+        
+        StartTime = clock();
+        
+        X.BubbleSortArray();
+        
+        EndTime = clock();
+        
+        Speed = ((float) EndTime - StartTime) / CLOCKS_PER_SEC;
+        
+        TotalTime += Speed;
+        
+        cout << "Time it took to sort this array (Bubble Sort): ";
+        cout << Speed << " seconds" << endl << endl;
+        
+        X.ClearArray();
     }
     
-    Y.PrintFullArray();
+    cout << "Average sort speed from all 10 runs: ";
     
-    Y.SortArray();
-    
-    Y.PrintFullArray();
+    cout << setprecision(4) << TotalTime / AmountOfTimesThroughLoop << endl << endl;
 }
 
 DynamicArray::DynamicArray()// DEFAULT CONSTRUCTOR
@@ -226,7 +263,7 @@ void DynamicArray::PrintSpecificElement(const int &ElementToPrint)
     cout << endl;
 }
 
-void DynamicArray::SortArray()
+void DynamicArray::BubbleSortArray()
 {
     /* USING BUBBLE SORT TO SORT ARRAY */
     
@@ -253,8 +290,58 @@ void DynamicArray::SortArray()
     
 }
 
+/* BOTH SELECTION SORT AND INSERTION SORT ALGORITH ARE DIRECTLY COPIED FROM */
+/* http://www.cprogramming.com/tutorial/computersciencetheory/sortcomp.html */
 
+void DynamicArray::SelectionSortArray()
+{
+    for(int x = 0; x < ArraySize; x++)
+        
+    {
+        int index_of_min = x;
+        
+        for(int y = x; y < ArraySize; y++)
+            
+        {
+            if(ArrayPointer[index_of_min] > ArrayPointer[y])
+            {
+                index_of_min = y;
+                
+            }
+        }
+        
+        int temp = ArrayPointer[x];
+        
+        ArrayPointer[x] = ArrayPointer[index_of_min];
+        
+        ArrayPointer[index_of_min] = temp;
+    }
+}
 
+void DynamicArray::InsertionSortArray()
+{
+    for(int x = 0; x < ArraySize; x++)
+        
+    {
+        int index_of_min = x;
+        
+        for(int y = x; y < ArraySize; y++)
+            
+        {
+            if(ArrayPointer[index_of_min] > ArrayPointer[y])
+                
+            {
+                index_of_min = y;
+            }
+        }
+        
+        int temp = ArrayPointer[x];
+        
+        ArrayPointer[x] = ArrayPointer[index_of_min];
+        
+        ArrayPointer[index_of_min] = temp;
+    }
+}
 
 
 
