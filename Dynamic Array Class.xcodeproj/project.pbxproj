@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		992844791D535AF600ACC43B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 992844781D535AF600ACC43B /* main.cpp */; };
+		992844791D535AF600ACC43B /* DynamicArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 992844781D535AF600ACC43B /* DynamicArray.cpp */; };
+		99B832AF1D73D33100A204F6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99B832AE1D73D33100A204F6 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		992844751D535AF600ACC43B /* Dynamic Array Class */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Dynamic Array Class"; sourceTree = BUILT_PRODUCTS_DIR; };
-		992844781D535AF600ACC43B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		992844781D535AF600ACC43B /* DynamicArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicArray.cpp; sourceTree = "<group>"; };
+		99B832AD1D73D29B00A204F6 /* DynamicArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicArray.h; sourceTree = "<group>"; };
+		99B832AE1D73D33100A204F6 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +61,9 @@
 		992844771D535AF600ACC43B /* Dynamic Array Class */ = {
 			isa = PBXGroup;
 			children = (
-				992844781D535AF600ACC43B /* main.cpp */,
+				99B832AE1D73D33100A204F6 /* main.cpp */,
+				992844781D535AF600ACC43B /* DynamicArray.cpp */,
+				99B832AD1D73D29B00A204F6 /* DynamicArray.h */,
 			);
 			path = "Dynamic Array Class";
 			sourceTree = "<group>";
@@ -119,7 +124,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				992844791D535AF600ACC43B /* main.cpp in Sources */,
+				99B832AF1D73D33100A204F6 /* main.cpp in Sources */,
+				992844791D535AF600ACC43B /* DynamicArray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
