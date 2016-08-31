@@ -16,12 +16,12 @@ class DynamicArray
 {
     int *ArrayPointer;
     int ArraySize;
-    
+
 public:
-    
+
     DynamicArray(); // DEFAULT CONSTRUCTOR
     ~DynamicArray();// DESTRUCTOR
-    
+
     void AddElementToEnd(const int &NewElement);
     void InsertElementAtPosition(const int &Position, const int &NewElement);
     void PrintFullArray();

@@ -67,7 +67,7 @@ void DynamicArray::InsertElementAtPosition(const int &Position, const int &NewEl
     
     int *TempIntPointer = new(nothrow) int[ArraySize + 1];
     
-    /* COPY ORIGINAL ARRAY FROM ARRAYPOINTER TO TEMPINTPOINTER*/
+    /* COPY ORIGINAL ARRAY FROM ARRAYPOINTER TO TEMPINTPOINTER */
     
     for (int i = 0; i < ArraySize; i++)
     {
