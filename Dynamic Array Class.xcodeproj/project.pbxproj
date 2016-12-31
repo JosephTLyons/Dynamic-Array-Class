@@ -62,8 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				99B832AE1D73D33100A204F6 /* main.cpp */,
-				992844781D535AF600ACC43B /* DynamicArray.cpp */,
 				99B832AD1D73D29B00A204F6 /* DynamicArray.h */,
+				992844781D535AF600ACC43B /* DynamicArray.cpp */,
 			);
 			path = "Dynamic Array Class";
 			sourceTree = "<group>";

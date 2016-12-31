@@ -19,8 +19,11 @@ class DynamicArray
 
 public:
 
-    DynamicArray(); // DEFAULT CONSTRUCTOR
-    ~DynamicArray();// DESTRUCTOR
+    // DEFAULT CONSTRUCTOR
+    DynamicArray();
+    
+    // DESTRUCTOR
+    ~DynamicArray();
 
     void AddElementToEnd(const int &NewElement);
     void InsertElementAtPosition(const int &Position, const int &NewElement);

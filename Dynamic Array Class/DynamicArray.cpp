@@ -2,13 +2,15 @@
 #include "DynamicArray.h"
 using namespace std;
 
-DynamicArray::DynamicArray()// DEFAULT CONSTRUCTOR
+// DEFAULT CONSTRUCTOR
+DynamicArray::DynamicArray()
 {
     ArraySize = 0;
     ArrayPointer = NULL;
 }
 
-DynamicArray::~DynamicArray()// DESTRUCTOR
+// DESTRUCTOR
+DynamicArray::~DynamicArray()
 {
     delete[] ArrayPointer;
 }
@@ -17,12 +19,10 @@ void DynamicArray::AddElementToEnd(const int &NewElement)
 {
     int *TempIntPointer = NULL;
     
-    /* INCREASE SIZE BY ONE */
-    
+    // INCREASE SIZE BY ONE
     ArraySize++;
     
-    /* CREATE NEW ARRAY THATS ONE ELEMENT LARGER THAN THE ONE ASSOCIATED WITH DATA MEMBER */
-    
+    // CREATE NEW ARRAY THATS ONE ELEMENT LARGER THAN THE ONE ASSOCIATED WITH DATA MEMBER
     TempIntPointer = new(nothrow) int[ArraySize];
     
     /* CHECK TO MAKE SURE MEMORY WAS ALLOCATED, IF MEMORY ISN'T AVAILABLE, DISPLAY MESSAGE AND RETURN */
@@ -33,9 +33,10 @@ void DynamicArray::AddElementToEnd(const int &NewElement)
         return;
     }
     
-    /* COPY INFORMATION FROM DATA MEMBER ARRAY, TO NEWLY MADE ARRAY, IF ORIGINAL ARRAYPOINER ISN'T POINTING TO NULL */
-    /* THIS IS IMPORTANT FOR THE FIRST PASS WHEN ARRAY IS EMPTY AND THE COPY STATEMENT AFTER TRIES TO ACCESS IT, PRODUCING AN ERROR */
-    
+    // COPY INFORMATION FROM DATA MEMBER ARRAY, TO NEWLY MADE ARRAY,
+    // IF ORIGINAL ARRAYPOINER ISN'T POINTING TO NULL
+    // THIS IS IMPORTANT FOR THE FIRST PASS WHEN ARRAY IS EMPTY AND
+    // THE COPY STATEMENT AFTER TRIES TO ACCESS IT, PRODUCING AN ERROR
     if (ArrayPointer != NULL)
     {
         for (int i = 0; i < ArraySize; i++)
@@ -44,61 +45,50 @@ void DynamicArray::AddElementToEnd(const int &NewElement)
         }
     }
     
-    /* ASSIGN NEW NUMBER TO THE END OF THE ARRAY */
-    
+    // ASSIGN NEW NUMBER TO THE END OF THE ARRAY
     TempIntPointer[ArraySize - 1] = NewElement;
     
-    /* DELETE MEMORY ASSOCIATED WITH ORIGINAL ARRAY IN ARRAYPOINTER */
-    
+    // DELETE MEMORY ASSOCIATED WITH ORIGINAL ARRAY IN ARRAYPOINTER
     delete[] ArrayPointer;
     
-    /* ASSIGN THE MEMORY LOCATION OF THEW NEW (LARGER) ARRAY TO ARRAYPOINTER */
-    
+    // ASSIGN THE MEMORY LOCATION OF THEW NEW (LARGER) ARRAY TO ARRAYPOINTER
     ArrayPointer = TempIntPointer;
     
-    /* POINT TEMPINTPOINTER TO NULL */
-    
+    // POINT TEMPINTPOINTER TO NULL
     TempIntPointer = NULL;
 }
 
 void DynamicArray::InsertElementAtPosition(const int &Position, const int &NewElement)
 {
-    /* MAKE NEW ARRAY THATS ONE SIZE BIGGER */
-    
+    // MAKE NEW ARRAY THATS ONE SIZE BIGGER
     int *TempIntPointer = new(nothrow) int[ArraySize + 1];
     
-    /* COPY ORIGINAL ARRAY FROM ARRAYPOINTER TO TEMPINTPOINTER */
-    
+    // COPY ORIGINAL ARRAY FROM ARRAYPOINTER TO TEMPINTPOINTER
     for (int i = 0; i < ArraySize; i++)
     {
         TempIntPointer[i] = ArrayPointer[i];
     }
     
-    /* INCREASE ARRAYSIZE BY ONE */
-    
+    // INCREASE ARRAYSIZE BY ONE
     ArraySize++;
     
-    /* MOVE ALL ELEMENTS OVER ONE SPOT, STARTING FROM RIGHT AND WORKING LEFT, LEAVING SPACE AT THE DESIRED POSITION */
-    
+    // MOVE ALL ELEMENTS OVER ONE SPOT, STARTING FROM RIGHT AND WORKING LEFT
+    // LEAVING SPACE AT THE DESIRED POSITION
     for (int i = (ArraySize - 1); i > (Position - 1); i--)
     {
         TempIntPointer[i] = TempIntPointer[i - 1];
     }
     
-    /* INSERT NEW ELEMENT AT DESIRED POSITION */
-    
+    // INSERT NEW ELEMENT AT DESIRED POSITION
     TempIntPointer[Position - 1] = NewElement;
     
-    /* DELETE THE ORIGINAL ARRAY FROM ARRAYPOINTER */
-    
+    // DELETE THE ORIGINAL ARRAY FROM ARRAYPOINTER
     delete[] ArrayPointer;
     
-    /* ASSIGN NEW ARRAY TO ARRAYPOINTER */
-    
+    // ASSIGN NEW ARRAY TO ARRAYPOINTER
     ArrayPointer = TempIntPointer;
     
-    /* POINT TEMPINTPOINTER TO NULL */
-    
+    // POINT TEMPINTPOINTER TO NULL
     TempIntPointer = NULL;
 }
 
@@ -123,23 +113,19 @@ void DynamicArray::DeleteElementAtPosition(const int &ElementToBeDeleted)
 {
     int *TempIntPointer = NULL;
     
-    /* MOVE ALL ELEMENTS LEFT ONE, OVERWRITING THE ELEMENT TO BE DELETED, STOPPING THERE */
-    
+    // MOVE ALL ELEMENTS LEFT ONE, OVERWRITING THE ELEMENT TO BE DELETED, STOPPING THERE
     for (int i = (ElementToBeDeleted - 1); i < ArraySize ; i++)
     {
         this -> ArrayPointer[i] = this -> ArrayPointer[i + 1];
     }
     
-    /* DECREASE ARRAY SIZE */
-    
+    // DECREASE ARRAY SIZE
     ArraySize--;
     
-    /* CREATE NEW ARRAY WITH NEW ARRAY SIZE */
-    
+    // CREATE NEW ARRAY WITH NEW ARRAY SIZE
     TempIntPointer = new(nothrow) int[ArraySize];
     
-    /* COPY CONTENTS FROM ORIGINAL ARRAY TO NEW ARRAY */
-    
+    // COPY CONTENTS FROM ORIGINAL ARRAY TO NEW ARRAY
     if (ArrayPointer != NULL)
     {
         for (int i = 0; i < ArraySize; i++)
@@ -148,31 +134,25 @@ void DynamicArray::DeleteElementAtPosition(const int &ElementToBeDeleted)
         }
     }
     
-    /* DELETE ORIGINAL ARRAY */
-    
+    // DELETE ORIGINAL ARRAY
     delete[] ArrayPointer;
     
-    /* ASSIGN NEW ARRAY TO ARRAYPOINTER */
-    
+    // ASSIGN NEW ARRAY TO ARRAYPOINTER
     ArrayPointer = TempIntPointer;
     
-    /* POINT TEMPINTPOINTER TO NULL */
-    
+    // POINT TEMPINTPOINTER TO NULL
     TempIntPointer = NULL;
 }
 
 void DynamicArray::ClearArray()
 {
-    /* DELETE ARRAY */
-    
+    // DELETE ARRAY
     delete[] ArrayPointer;
     
-    /* POINT ARRAYPOINTER TO NULL */
-    
+    // POINT ARRAYPOINTER TO NULL
     ArrayPointer = NULL;
     
-    /* RESET ARRAYSIZE BACK TO ZERO */
-    
+    // RESET ARRAYSIZE BACK TO ZERO
     ArraySize = 0;
 }
 
@@ -180,27 +160,23 @@ void DynamicArray::PrintSpecificElement(const int &ElementToPrint)
 {
     cout << ElementToPrint << ") ";
     
-    /* PRINT ELEMENT REQUESTED */
-    
+    // PRINT ELEMENT REQUESTED
     cout << ArrayPointer[ElementToPrint - 1];
     cout << endl;
 }
 
 void DynamicArray::BubbleSortArray()
 {
-    /* USING BUBBLE SORT TO SORT ARRAY */
-    
+    // USING BUBBLE SORT TO SORT ARRAY
     bool SwapsMadeFlag = true;
     
-    /* ALWAYS REPEAT THROUGH AS LONG AS A SWAP WAS MADE */
-    
+    // ALWAYS REPEAT THROUGH AS LONG AS A SWAP WAS MADE
     while (SwapsMadeFlag == true)
     {
         SwapsMadeFlag = false;
         
-        /* GO THROUGH WHOLE ARRAY ONCE, CHECKING TWO NEIGHBORING NUMBERS */
-        /* SWAPPING NUMBERS AS NECESSARY, FIRST TIME THROUGH PUTS LARGEST NUMBER AT END */
-        
+        // GO THROUGH WHOLE ARRAY ONCE, CHECKING TWO NEIGHBORING NUMBERS
+        // SWAPPING NUMBERS AS NECESSARY, FIRST TIME THROUGH PUTS LARGEST NUMBER AT END
         for (int i = 0; i < (ArraySize - 1); i++)
         {
             if (ArrayPointer[i] > ArrayPointer[i +1 ])
@@ -213,9 +189,8 @@ void DynamicArray::BubbleSortArray()
     
 }
 
-/* BOTH SELECTION SORT AND INSERTION SORT ALGORITH ARE DIRECTLY COPIED FROM */
-/* http://www.cprogramming.com/tutorial/computersciencetheory/sortcomp.html */
-
+// BOTH SELECTION SORT AND INSERTION SORT ALGORITH ARE DIRECTLY COPIED FROM
+// http://www.cprogramming.com/tutorial/computersciencetheory/sortcomp.html
 void DynamicArray::SelectionSortArray()
 {
     for(int x = 0; x < ArraySize; x++)
